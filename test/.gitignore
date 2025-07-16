@@ -1,0 +1,9 @@
+/venv/
+
+# Open API Key
+
+OPENAI_API_KEY=OPENAI_API_KEY= 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
+
+
+# Google Cloud credentials
+google-credentials.json

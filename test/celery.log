@@ -1,0 +1,1287 @@
+[2024-11-24 07:39:07,894: INFO/MainProcess] beat: Starting...
+[2024-11-24 07:39:07,923: CRITICAL/MainProcess] beat raised exception <class 'django.db.utils.ProgrammingError'>: ProgrammingError('relation "django_celery_beat_periodictask" does not exist\nLINE 1: ...ango_celery_beat_periodictask"."description" FROM "django_ce...\n                                                             ^\n')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_celery_beat_periodictask" does not exist
+LINE 1: ...ango_celery_beat_periodictask"."description" FROM "django_ce...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/apps/beat.py", line 113, in start_scheduler
+    service.start()
+  File "/usr/local/lib/python3.11/site-packages/celery/beat.py", line 634, in start
+    humanize_seconds(self.scheduler.max_interval))
+                     ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/utils/objects.py", line 40, in __get__
+    return super().__get__(instance, owner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/functools.py", line 1001, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/beat.py", line 677, in scheduler
+    return self.get_scheduler()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/beat.py", line 668, in get_scheduler
+    return symbol_by_name(self.scheduler_cls, aliases=aliases)(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django_celery_beat/schedulers.py", line 233, in __init__
+    Scheduler.__init__(self, *args, **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/celery/beat.py", line 264, in __init__
+    self.setup_schedule()
+  File "/usr/local/lib/python3.11/site-packages/django_celery_beat/schedulers.py", line 241, in setup_schedule
+    self.install_default_entries(self.schedule)
+                                 ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django_celery_beat/schedulers.py", line 363, in schedule
+    self._schedule = self.all_as_schedule()
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django_celery_beat/schedulers.py", line 247, in all_as_schedule
+    for model in self.Model.objects.enabled():
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/query.py", line 1926, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_celery_beat_periodictask" does not exist
+LINE 1: ...ango_celery_beat_periodictask"."description" FROM "django_ce...
+                                                             ^
+
+[2024-11-24 07:39:07,928: WARNING/MainProcess] Traceback (most recent call last):
+[2024-11-24 07:39:07,930: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+[2024-11-24 07:39:07,931: WARNING/MainProcess]     
+[2024-11-24 07:39:07,933: WARNING/MainProcess] return self.cursor.execute(sql, params)
+[2024-11-24 07:39:07,935: WARNING/MainProcess]  
+[2024-11-24 07:39:07,936: WARNING/MainProcess]  
+[2024-11-24 07:39:07,937: WARNING/MainProcess]  
+[2024-11-24 07:39:07,938: WARNING/MainProcess]  
+[2024-11-24 07:39:07,939: WARNING/MainProcess]  
+[2024-11-24 07:39:07,940: WARNING/MainProcess]  
+[2024-11-24 07:39:07,941: WARNING/MainProcess]  
+[2024-11-24 07:39:07,942: WARNING/MainProcess]  
+[2024-11-24 07:39:07,943: WARNING/MainProcess]  
+[2024-11-24 07:39:07,945: WARNING/MainProcess]  
+[2024-11-24 07:39:07,946: WARNING/MainProcess]  
+[2024-11-24 07:39:07,947: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,948: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,949: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,950: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,951: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,952: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,954: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,955: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,956: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,957: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,959: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,960: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,961: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,961: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,963: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,963: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,965: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,966: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,966: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,968: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,969: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,970: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,971: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,972: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,975: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,976: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,977: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,979: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,980: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,981: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,982: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,983: WARNING/MainProcess] ^
+[2024-11-24 07:39:07,985: WARNING/MainProcess] psycopg2.errors
+[2024-11-24 07:39:07,986: WARNING/MainProcess] .
+[2024-11-24 07:39:07,987: WARNING/MainProcess] UndefinedTable
+[2024-11-24 07:39:07,989: WARNING/MainProcess] : 
+[2024-11-24 07:39:07,990: WARNING/MainProcess] relation "django_celery_beat_periodictask" does not exist
+LINE 1: ...ango_celery_beat_periodictask"."description" FROM "django_ce...
+                                                             ^
+[2024-11-24 07:39:07,991: WARNING/MainProcess] The above exception was the direct cause of the following exception:
+[2024-11-24 07:39:07,993: WARNING/MainProcess] Traceback (most recent call last):
+[2024-11-24 07:39:07,995: WARNING/MainProcess]   File "/usr/local/bin/celery", line 8, in <module>
+[2024-11-24 07:39:07,996: WARNING/MainProcess]     
+[2024-11-24 07:39:07,998: WARNING/MainProcess] sys.exit(main())
+[2024-11-24 07:39:08,000: WARNING/MainProcess]  
+[2024-11-24 07:39:08,001: WARNING/MainProcess]  
+[2024-11-24 07:39:08,002: WARNING/MainProcess]  
+[2024-11-24 07:39:08,003: WARNING/MainProcess]  
+[2024-11-24 07:39:08,005: WARNING/MainProcess]  
+[2024-11-24 07:39:08,007: WARNING/MainProcess]  
+[2024-11-24 07:39:08,008: WARNING/MainProcess]  
+[2024-11-24 07:39:08,009: WARNING/MainProcess]  
+[2024-11-24 07:39:08,010: WARNING/MainProcess]  
+[2024-11-24 07:39:08,012: WARNING/MainProcess]  
+[2024-11-24 07:39:08,015: WARNING/MainProcess]  
+[2024-11-24 07:39:08,016: WARNING/MainProcess]  
+[2024-11-24 07:39:08,018: WARNING/MainProcess]  
+[2024-11-24 07:39:08,019: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,020: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,021: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,022: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,023: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,025: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,026: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/celery/__main__.py", line 15, in main
+[2024-11-24 07:39:08,027: WARNING/MainProcess]     
+[2024-11-24 07:39:08,028: WARNING/MainProcess] sys.exit(_main())
+[2024-11-24 07:39:08,029: WARNING/MainProcess]  
+[2024-11-24 07:39:08,030: WARNING/MainProcess]  
+[2024-11-24 07:39:08,032: WARNING/MainProcess]  
+[2024-11-24 07:39:08,034: WARNING/MainProcess]  
+[2024-11-24 07:39:08,035: WARNING/MainProcess]  
+[2024-11-24 07:39:08,037: WARNING/MainProcess]  
+[2024-11-24 07:39:08,039: WARNING/MainProcess]  
+[2024-11-24 07:39:08,041: WARNING/MainProcess]  
+[2024-11-24 07:39:08,041: WARNING/MainProcess]  
+[2024-11-24 07:39:08,044: WARNING/MainProcess]  
+[2024-11-24 07:39:08,046: WARNING/MainProcess]  
+[2024-11-24 07:39:08,047: WARNING/MainProcess]  
+[2024-11-24 07:39:08,049: WARNING/MainProcess]  
+[2024-11-24 07:39:08,051: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,053: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,055: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,056: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,062: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,064: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,066: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,068: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/celery/bin/celery.py", line 236, in main
+[2024-11-24 07:39:08,070: WARNING/MainProcess]     
+[2024-11-24 07:39:08,071: WARNING/MainProcess] return celery(auto_envvar_prefix="CELERY")
+[2024-11-24 07:39:08,074: WARNING/MainProcess]  
+[2024-11-24 07:39:08,083: WARNING/MainProcess]  
+[2024-11-24 07:39:08,086: WARNING/MainProcess]  
+[2024-11-24 07:39:08,087: WARNING/MainProcess]  
+[2024-11-24 07:39:08,088: WARNING/MainProcess]  
+[2024-11-24 07:39:08,089: WARNING/MainProcess]  
+[2024-11-24 07:39:08,093: WARNING/MainProcess]  
+[2024-11-24 07:39:08,096: WARNING/MainProcess]  
+[2024-11-24 07:39:08,099: WARNING/MainProcess]  
+[2024-11-24 07:39:08,101: WARNING/MainProcess]  
+[2024-11-24 07:39:08,102: WARNING/MainProcess]  
+[2024-11-24 07:39:08,103: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,105: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,106: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,107: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,108: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,113: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,115: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,117: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,118: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,120: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,122: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,123: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,124: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,128: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,132: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,136: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,138: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,139: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,140: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,142: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,143: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,145: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,147: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,148: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,150: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,152: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,155: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,159: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,163: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,167: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,168: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,169: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,171: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,173: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,175: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,177: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1157, in __call__
+[2024-11-24 07:39:08,178: WARNING/MainProcess]     
+[2024-11-24 07:39:08,179: WARNING/MainProcess] return self.main(*args, **kwargs)
+[2024-11-24 07:39:08,180: WARNING/MainProcess]  
+[2024-11-24 07:39:08,183: WARNING/MainProcess]  
+[2024-11-24 07:39:08,184: WARNING/MainProcess]  
+[2024-11-24 07:39:08,187: WARNING/MainProcess]  
+[2024-11-24 07:39:08,189: WARNING/MainProcess]  
+[2024-11-24 07:39:08,190: WARNING/MainProcess]  
+[2024-11-24 07:39:08,192: WARNING/MainProcess]  
+[2024-11-24 07:39:08,193: WARNING/MainProcess]  
+[2024-11-24 07:39:08,195: WARNING/MainProcess]  
+[2024-11-24 07:39:08,196: WARNING/MainProcess]  
+[2024-11-24 07:39:08,197: WARNING/MainProcess]  
+[2024-11-24 07:39:08,198: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,201: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,203: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,204: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,209: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,211: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,212: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,213: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,215: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,216: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,217: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,218: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,220: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,221: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,222: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,223: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,224: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,225: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,226: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,227: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,229: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,230: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,232: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,233: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,234: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,236: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,237: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1078, in main
+[2024-11-24 07:39:08,239: WARNING/MainProcess]     
+[2024-11-24 07:39:08,240: WARNING/MainProcess] rv = self.invoke(ctx)
+[2024-11-24 07:39:08,242: WARNING/MainProcess]  
+[2024-11-24 07:39:08,243: WARNING/MainProcess]  
+[2024-11-24 07:39:08,245: WARNING/MainProcess]  
+[2024-11-24 07:39:08,246: WARNING/MainProcess]  
+[2024-11-24 07:39:08,248: WARNING/MainProcess]  
+[2024-11-24 07:39:08,250: WARNING/MainProcess]  
+[2024-11-24 07:39:08,251: WARNING/MainProcess]  
+[2024-11-24 07:39:08,253: WARNING/MainProcess]  
+[2024-11-24 07:39:08,255: WARNING/MainProcess]  
+[2024-11-24 07:39:08,256: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,257: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,258: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,259: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,260: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,261: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,262: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,264: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,266: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,267: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,268: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,270: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,271: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,273: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,274: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,276: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,277: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1688, in invoke
+[2024-11-24 07:39:08,279: WARNING/MainProcess]     
+[2024-11-24 07:39:08,280: WARNING/MainProcess] return _process_result(sub_ctx.command.invoke(sub_ctx))
+[2024-11-24 07:39:08,282: WARNING/MainProcess]  
+[2024-11-24 07:39:08,284: WARNING/MainProcess]  
+[2024-11-24 07:39:08,285: WARNING/MainProcess]  
+[2024-11-24 07:39:08,287: WARNING/MainProcess]  
+[2024-11-24 07:39:08,288: WARNING/MainProcess]  
+[2024-11-24 07:39:08,290: WARNING/MainProcess]  
+[2024-11-24 07:39:08,291: WARNING/MainProcess]  
+[2024-11-24 07:39:08,292: WARNING/MainProcess]  
+[2024-11-24 07:39:08,294: WARNING/MainProcess]  
+[2024-11-24 07:39:08,295: WARNING/MainProcess]  
+[2024-11-24 07:39:08,298: WARNING/MainProcess]  
+[2024-11-24 07:39:08,299: WARNING/MainProcess]  
+[2024-11-24 07:39:08,301: WARNING/MainProcess]  
+[2024-11-24 07:39:08,302: WARNING/MainProcess]  
+[2024-11-24 07:39:08,303: WARNING/MainProcess]  
+[2024-11-24 07:39:08,304: WARNING/MainProcess]  
+[2024-11-24 07:39:08,305: WARNING/MainProcess]  
+[2024-11-24 07:39:08,306: WARNING/MainProcess]  
+[2024-11-24 07:39:08,308: WARNING/MainProcess]  
+[2024-11-24 07:39:08,309: WARNING/MainProcess]  
+[2024-11-24 07:39:08,310: WARNING/MainProcess]  
+[2024-11-24 07:39:08,311: WARNING/MainProcess]  
+[2024-11-24 07:39:08,312: WARNING/MainProcess]  
+[2024-11-24 07:39:08,313: WARNING/MainProcess]  
+[2024-11-24 07:39:08,314: WARNING/MainProcess]  
+[2024-11-24 07:39:08,316: WARNING/MainProcess]  
+[2024-11-24 07:39:08,318: WARNING/MainProcess]  
+[2024-11-24 07:39:08,319: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,320: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,322: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,323: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,325: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,326: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,327: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,329: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,330: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,331: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,333: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,334: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,335: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,336: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,338: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,339: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,340: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,341: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,342: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,344: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,345: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,346: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,348: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,350: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,351: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,353: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,354: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,355: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,356: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,357: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,358: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,359: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1434, in invoke
+[2024-11-24 07:39:08,361: WARNING/MainProcess]     
+[2024-11-24 07:39:08,362: WARNING/MainProcess] return ctx.invoke(self.callback, **ctx.params)
+[2024-11-24 07:39:08,363: WARNING/MainProcess]  
+[2024-11-24 07:39:08,364: WARNING/MainProcess]  
+[2024-11-24 07:39:08,365: WARNING/MainProcess]  
+[2024-11-24 07:39:08,366: WARNING/MainProcess]  
+[2024-11-24 07:39:08,368: WARNING/MainProcess]  
+[2024-11-24 07:39:08,369: WARNING/MainProcess]  
+[2024-11-24 07:39:08,370: WARNING/MainProcess]  
+[2024-11-24 07:39:08,372: WARNING/MainProcess]  
+[2024-11-24 07:39:08,373: WARNING/MainProcess]  
+[2024-11-24 07:39:08,374: WARNING/MainProcess]  
+[2024-11-24 07:39:08,375: WARNING/MainProcess]  
+[2024-11-24 07:39:08,376: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,378: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,379: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,380: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,381: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,382: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,384: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,385: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,386: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,387: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,389: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,390: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,392: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,394: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,395: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,396: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,397: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,398: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,399: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,400: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,402: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,403: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,405: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,406: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,407: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,408: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,410: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,411: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,412: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,413: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,414: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,415: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,416: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,419: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,420: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,421: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,422: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,423: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,424: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,425: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 783, in invoke
+[2024-11-24 07:39:08,427: WARNING/MainProcess]     
+[2024-11-24 07:39:08,428: WARNING/MainProcess] return __callback(*args, **kwargs)
+[2024-11-24 07:39:08,429: WARNING/MainProcess]  
+[2024-11-24 07:39:08,430: WARNING/MainProcess]  
+[2024-11-24 07:39:08,431: WARNING/MainProcess]  
+[2024-11-24 07:39:08,432: WARNING/MainProcess]  
+[2024-11-24 07:39:08,433: WARNING/MainProcess]  
+[2024-11-24 07:39:08,434: WARNING/MainProcess]  
+[2024-11-24 07:39:08,435: WARNING/MainProcess]  
+[2024-11-24 07:39:08,436: WARNING/MainProcess]  
+[2024-11-24 07:39:08,438: WARNING/MainProcess]  
+[2024-11-24 07:39:08,439: WARNING/MainProcess]  
+[2024-11-24 07:39:08,440: WARNING/MainProcess]  
+[2024-11-24 07:39:08,441: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,442: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,443: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,444: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,445: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,446: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,447: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,448: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,449: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,450: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,451: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,452: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,454: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,456: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,457: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,458: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,459: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,460: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,461: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,462: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,463: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,464: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,465: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,466: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,468: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,469: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,470: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,471: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/click/decorators.py", line 33, in new_func
+[2024-11-24 07:39:08,472: WARNING/MainProcess]     
+[2024-11-24 07:39:08,473: WARNING/MainProcess] return f(get_current_context(), *args, **kwargs)
+[2024-11-24 07:39:08,474: WARNING/MainProcess]  
+[2024-11-24 07:39:08,475: WARNING/MainProcess]  
+[2024-11-24 07:39:08,476: WARNING/MainProcess]  
+[2024-11-24 07:39:08,477: WARNING/MainProcess]  
+[2024-11-24 07:39:08,479: WARNING/MainProcess]  
+[2024-11-24 07:39:08,480: WARNING/MainProcess]  
+[2024-11-24 07:39:08,481: WARNING/MainProcess]  
+[2024-11-24 07:39:08,483: WARNING/MainProcess]  
+[2024-11-24 07:39:08,484: WARNING/MainProcess]  
+[2024-11-24 07:39:08,485: WARNING/MainProcess]  
+[2024-11-24 07:39:08,486: WARNING/MainProcess]  
+[2024-11-24 07:39:08,487: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,488: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,489: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,490: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,491: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,493: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,494: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,495: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,496: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,497: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,498: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,500: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,501: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,502: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,503: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,504: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,506: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,507: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,508: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,510: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,511: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,512: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,513: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,514: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,515: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,516: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,518: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,519: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,520: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,521: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,523: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,524: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,526: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,527: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,528: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,529: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,530: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,531: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,533: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,534: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,535: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,537: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/celery/bin/base.py", line 134, in caller
+[2024-11-24 07:39:08,538: WARNING/MainProcess]     
+[2024-11-24 07:39:08,540: WARNING/MainProcess] return f(ctx, *args, **kwargs)
+[2024-11-24 07:39:08,541: WARNING/MainProcess]  
+[2024-11-24 07:39:08,542: WARNING/MainProcess]  
+[2024-11-24 07:39:08,543: WARNING/MainProcess]  
+[2024-11-24 07:39:08,544: WARNING/MainProcess]  
+[2024-11-24 07:39:08,545: WARNING/MainProcess]  
+[2024-11-24 07:39:08,546: WARNING/MainProcess]  
+[2024-11-24 07:39:08,548: WARNING/MainProcess]  
+[2024-11-24 07:39:08,550: WARNING/MainProcess]  
+[2024-11-24 07:39:08,551: WARNING/MainProcess]  
+[2024-11-24 07:39:08,553: WARNING/MainProcess]  
+[2024-11-24 07:39:08,554: WARNING/MainProcess]  
+[2024-11-24 07:39:08,555: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,556: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,557: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,558: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,559: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,560: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,561: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,562: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,563: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,564: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,566: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,567: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,568: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,569: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,570: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,571: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,572: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,573: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,575: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,576: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,579: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,580: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,582: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,583: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/celery/bin/beat.py", line 72, in beat
+[2024-11-24 07:39:08,585: WARNING/MainProcess]     
+[2024-11-24 07:39:08,586: WARNING/MainProcess] return beat().run()
+[2024-11-24 07:39:08,587: WARNING/MainProcess]  
+[2024-11-24 07:39:08,589: WARNING/MainProcess]  
+[2024-11-24 07:39:08,590: WARNING/MainProcess]  
+[2024-11-24 07:39:08,591: WARNING/MainProcess]  
+[2024-11-24 07:39:08,592: WARNING/MainProcess]  
+[2024-11-24 07:39:08,594: WARNING/MainProcess]  
+[2024-11-24 07:39:08,595: WARNING/MainProcess]  
+[2024-11-24 07:39:08,596: WARNING/MainProcess]  
+[2024-11-24 07:39:08,597: WARNING/MainProcess]  
+[2024-11-24 07:39:08,598: WARNING/MainProcess]  
+[2024-11-24 07:39:08,601: WARNING/MainProcess]  
+[2024-11-24 07:39:08,602: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,604: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,605: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,607: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,608: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,609: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,610: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,611: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,612: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,613: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,614: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,615: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,616: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/celery/apps/beat.py", line 84, in run
+[2024-11-24 07:39:08,618: WARNING/MainProcess]     
+[2024-11-24 07:39:08,620: WARNING/MainProcess] self.start_scheduler()
+[2024-11-24 07:39:08,621: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/celery/apps/beat.py", line 113, in start_scheduler
+[2024-11-24 07:39:08,623: WARNING/MainProcess]     
+[2024-11-24 07:39:08,624: WARNING/MainProcess] service.start()
+[2024-11-24 07:39:08,626: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/celery/beat.py", line 634, in start
+[2024-11-24 07:39:08,627: WARNING/MainProcess]     
+[2024-11-24 07:39:08,629: WARNING/MainProcess] humanize_seconds(self.scheduler.max_interval))
+[2024-11-24 07:39:08,630: WARNING/MainProcess]  
+[2024-11-24 07:39:08,632: WARNING/MainProcess]  
+[2024-11-24 07:39:08,633: WARNING/MainProcess]  
+[2024-11-24 07:39:08,634: WARNING/MainProcess]  
+[2024-11-24 07:39:08,635: WARNING/MainProcess]  
+[2024-11-24 07:39:08,637: WARNING/MainProcess]  
+[2024-11-24 07:39:08,638: WARNING/MainProcess]  
+[2024-11-24 07:39:08,639: WARNING/MainProcess]  
+[2024-11-24 07:39:08,640: WARNING/MainProcess]  
+[2024-11-24 07:39:08,642: WARNING/MainProcess]  
+[2024-11-24 07:39:08,643: WARNING/MainProcess]  
+[2024-11-24 07:39:08,644: WARNING/MainProcess]  
+[2024-11-24 07:39:08,645: WARNING/MainProcess]  
+[2024-11-24 07:39:08,646: WARNING/MainProcess]  
+[2024-11-24 07:39:08,647: WARNING/MainProcess]  
+[2024-11-24 07:39:08,649: WARNING/MainProcess]  
+[2024-11-24 07:39:08,650: WARNING/MainProcess]  
+[2024-11-24 07:39:08,651: WARNING/MainProcess]  
+[2024-11-24 07:39:08,652: WARNING/MainProcess]  
+[2024-11-24 07:39:08,653: WARNING/MainProcess]  
+[2024-11-24 07:39:08,654: WARNING/MainProcess]  
+[2024-11-24 07:39:08,656: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,657: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,658: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,659: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,660: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,661: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,662: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,663: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,664: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,665: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,666: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,668: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,669: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,670: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,672: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/kombu/utils/objects.py", line 40, in __get__
+[2024-11-24 07:39:08,673: WARNING/MainProcess]     
+[2024-11-24 07:39:08,674: WARNING/MainProcess] return super().__get__(instance, owner)
+[2024-11-24 07:39:08,675: WARNING/MainProcess]  
+[2024-11-24 07:39:08,676: WARNING/MainProcess]  
+[2024-11-24 07:39:08,677: WARNING/MainProcess]  
+[2024-11-24 07:39:08,678: WARNING/MainProcess]  
+[2024-11-24 07:39:08,679: WARNING/MainProcess]  
+[2024-11-24 07:39:08,680: WARNING/MainProcess]  
+[2024-11-24 07:39:08,681: WARNING/MainProcess]  
+[2024-11-24 07:39:08,682: WARNING/MainProcess]  
+[2024-11-24 07:39:08,684: WARNING/MainProcess]  
+[2024-11-24 07:39:08,685: WARNING/MainProcess]  
+[2024-11-24 07:39:08,686: WARNING/MainProcess]  
+[2024-11-24 07:39:08,687: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,688: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,690: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,697: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,700: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,709: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,715: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,716: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,717: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,718: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,723: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,726: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,728: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,729: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,734: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,739: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,741: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,743: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,744: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,746: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,747: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,749: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,751: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,756: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,758: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,760: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,761: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,762: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,765: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,768: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,769: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,771: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,772: WARNING/MainProcess]   File "/usr/local/lib/python3.11/functools.py", line 1001, in __get__
+[2024-11-24 07:39:08,774: WARNING/MainProcess]     
+[2024-11-24 07:39:08,775: WARNING/MainProcess] val = self.func(instance)
+[2024-11-24 07:39:08,776: WARNING/MainProcess]  
+[2024-11-24 07:39:08,777: WARNING/MainProcess]  
+[2024-11-24 07:39:08,778: WARNING/MainProcess]  
+[2024-11-24 07:39:08,783: WARNING/MainProcess]  
+[2024-11-24 07:39:08,784: WARNING/MainProcess]  
+[2024-11-24 07:39:08,787: WARNING/MainProcess]  
+[2024-11-24 07:39:08,793: WARNING/MainProcess]  
+[2024-11-24 07:39:08,796: WARNING/MainProcess]  
+[2024-11-24 07:39:08,799: WARNING/MainProcess]  
+[2024-11-24 07:39:08,801: WARNING/MainProcess]  
+[2024-11-24 07:39:08,803: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,804: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,808: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,811: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,813: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,818: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,822: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,824: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,828: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,830: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,832: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,833: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,834: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,836: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,837: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,842: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,848: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,851: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,855: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,856: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/celery/beat.py", line 677, in scheduler
+[2024-11-24 07:39:08,858: WARNING/MainProcess]     
+[2024-11-24 07:39:08,859: WARNING/MainProcess] return self.get_scheduler()
+[2024-11-24 07:39:08,860: WARNING/MainProcess]  
+[2024-11-24 07:39:08,861: WARNING/MainProcess]  
+[2024-11-24 07:39:08,862: WARNING/MainProcess]  
+[2024-11-24 07:39:08,863: WARNING/MainProcess]  
+[2024-11-24 07:39:08,864: WARNING/MainProcess]  
+[2024-11-24 07:39:08,865: WARNING/MainProcess]  
+[2024-11-24 07:39:08,866: WARNING/MainProcess]  
+[2024-11-24 07:39:08,867: WARNING/MainProcess]  
+[2024-11-24 07:39:08,869: WARNING/MainProcess]  
+[2024-11-24 07:39:08,870: WARNING/MainProcess]  
+[2024-11-24 07:39:08,871: WARNING/MainProcess]  
+[2024-11-24 07:39:08,872: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,874: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,875: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,877: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,880: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,882: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,883: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,884: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,886: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,888: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,889: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,890: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,893: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,894: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,895: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,896: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,898: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,899: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,901: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,903: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,905: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/celery/beat.py", line 668, in get_scheduler
+[2024-11-24 07:39:08,907: WARNING/MainProcess]     
+[2024-11-24 07:39:08,908: WARNING/MainProcess] return symbol_by_name(self.scheduler_cls, aliases=aliases)(
+[2024-11-24 07:39:08,909: WARNING/MainProcess]  
+[2024-11-24 07:39:08,912: WARNING/MainProcess]  
+[2024-11-24 07:39:08,913: WARNING/MainProcess]  
+[2024-11-24 07:39:08,914: WARNING/MainProcess]  
+[2024-11-24 07:39:08,916: WARNING/MainProcess]  
+[2024-11-24 07:39:08,917: WARNING/MainProcess]  
+[2024-11-24 07:39:08,922: WARNING/MainProcess]  
+[2024-11-24 07:39:08,923: WARNING/MainProcess]  
+[2024-11-24 07:39:08,924: WARNING/MainProcess]  
+[2024-11-24 07:39:08,925: WARNING/MainProcess]  
+[2024-11-24 07:39:08,927: WARNING/MainProcess]  
+[2024-11-24 07:39:08,928: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,929: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,930: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,931: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,932: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,933: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,935: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,936: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,937: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,938: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,940: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,941: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,942: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,944: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,945: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,947: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,948: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,950: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,951: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,953: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,954: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,955: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,956: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,958: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,959: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,960: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,962: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,964: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,965: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,967: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,969: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,970: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,972: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,973: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,975: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,976: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,977: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,979: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,980: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,981: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,983: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,984: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,986: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,987: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,989: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,990: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,992: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,994: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,995: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,997: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,998: WARNING/MainProcess] ^
+[2024-11-24 07:39:08,999: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,001: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django_celery_beat/schedulers.py", line 233, in __init__
+[2024-11-24 07:39:09,004: WARNING/MainProcess]     
+[2024-11-24 07:39:09,005: WARNING/MainProcess] Scheduler.__init__(self, *args, **kwargs)
+[2024-11-24 07:39:09,007: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/celery/beat.py", line 264, in __init__
+[2024-11-24 07:39:09,010: WARNING/MainProcess]     
+[2024-11-24 07:39:09,012: WARNING/MainProcess] self.setup_schedule()
+[2024-11-24 07:39:09,014: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django_celery_beat/schedulers.py", line 241, in setup_schedule
+[2024-11-24 07:39:09,016: WARNING/MainProcess]     
+[2024-11-24 07:39:09,017: WARNING/MainProcess] self.install_default_entries(self.schedule)
+[2024-11-24 07:39:09,018: WARNING/MainProcess]  
+[2024-11-24 07:39:09,020: WARNING/MainProcess]  
+[2024-11-24 07:39:09,021: WARNING/MainProcess]  
+[2024-11-24 07:39:09,022: WARNING/MainProcess]  
+[2024-11-24 07:39:09,025: WARNING/MainProcess]  
+[2024-11-24 07:39:09,027: WARNING/MainProcess]  
+[2024-11-24 07:39:09,028: WARNING/MainProcess]  
+[2024-11-24 07:39:09,030: WARNING/MainProcess]  
+[2024-11-24 07:39:09,032: WARNING/MainProcess]  
+[2024-11-24 07:39:09,033: WARNING/MainProcess]  
+[2024-11-24 07:39:09,034: WARNING/MainProcess]  
+[2024-11-24 07:39:09,035: WARNING/MainProcess]  
+[2024-11-24 07:39:09,037: WARNING/MainProcess]  
+[2024-11-24 07:39:09,038: WARNING/MainProcess]  
+[2024-11-24 07:39:09,040: WARNING/MainProcess]  
+[2024-11-24 07:39:09,041: WARNING/MainProcess]  
+[2024-11-24 07:39:09,043: WARNING/MainProcess]  
+[2024-11-24 07:39:09,044: WARNING/MainProcess]  
+[2024-11-24 07:39:09,046: WARNING/MainProcess]  
+[2024-11-24 07:39:09,049: WARNING/MainProcess]  
+[2024-11-24 07:39:09,054: WARNING/MainProcess]  
+[2024-11-24 07:39:09,055: WARNING/MainProcess]  
+[2024-11-24 07:39:09,066: WARNING/MainProcess]  
+[2024-11-24 07:39:09,068: WARNING/MainProcess]  
+[2024-11-24 07:39:09,069: WARNING/MainProcess]  
+[2024-11-24 07:39:09,071: WARNING/MainProcess]  
+[2024-11-24 07:39:09,072: WARNING/MainProcess]  
+[2024-11-24 07:39:09,073: WARNING/MainProcess]  
+[2024-11-24 07:39:09,075: WARNING/MainProcess]  
+[2024-11-24 07:39:09,076: WARNING/MainProcess]  
+[2024-11-24 07:39:09,077: WARNING/MainProcess]  
+[2024-11-24 07:39:09,079: WARNING/MainProcess]  
+[2024-11-24 07:39:09,080: WARNING/MainProcess]  
+[2024-11-24 07:39:09,082: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,083: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,085: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,086: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,087: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,089: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,090: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,091: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,092: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,093: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,094: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,095: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,096: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,097: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django_celery_beat/schedulers.py", line 363, in schedule
+[2024-11-24 07:39:09,099: WARNING/MainProcess]     
+[2024-11-24 07:39:09,100: WARNING/MainProcess] self._schedule = self.all_as_schedule()
+[2024-11-24 07:39:09,101: WARNING/MainProcess]  
+[2024-11-24 07:39:09,102: WARNING/MainProcess]  
+[2024-11-24 07:39:09,104: WARNING/MainProcess]  
+[2024-11-24 07:39:09,105: WARNING/MainProcess]  
+[2024-11-24 07:39:09,106: WARNING/MainProcess]  
+[2024-11-24 07:39:09,107: WARNING/MainProcess]  
+[2024-11-24 07:39:09,108: WARNING/MainProcess]  
+[2024-11-24 07:39:09,109: WARNING/MainProcess]  
+[2024-11-24 07:39:09,111: WARNING/MainProcess]  
+[2024-11-24 07:39:09,112: WARNING/MainProcess]  
+[2024-11-24 07:39:09,113: WARNING/MainProcess]  
+[2024-11-24 07:39:09,115: WARNING/MainProcess]  
+[2024-11-24 07:39:09,119: WARNING/MainProcess]  
+[2024-11-24 07:39:09,120: WARNING/MainProcess]  
+[2024-11-24 07:39:09,121: WARNING/MainProcess]  
+[2024-11-24 07:39:09,123: WARNING/MainProcess]  
+[2024-11-24 07:39:09,124: WARNING/MainProcess]  
+[2024-11-24 07:39:09,126: WARNING/MainProcess]  
+[2024-11-24 07:39:09,127: WARNING/MainProcess]  
+[2024-11-24 07:39:09,128: WARNING/MainProcess]  
+[2024-11-24 07:39:09,129: WARNING/MainProcess]  
+[2024-11-24 07:39:09,130: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,131: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,132: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,133: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,136: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,137: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,138: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,139: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,140: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,141: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,143: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,144: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,145: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,147: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,148: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,149: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,150: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,151: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,152: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,154: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,154: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,155: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,156: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django_celery_beat/schedulers.py", line 247, in all_as_schedule
+[2024-11-24 07:39:09,157: WARNING/MainProcess]     
+[2024-11-24 07:39:09,158: WARNING/MainProcess] for model in self.Model.objects.enabled():
+[2024-11-24 07:39:09,159: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django/db/models/query.py", line 398, in __iter__
+[2024-11-24 07:39:09,161: WARNING/MainProcess]     
+[2024-11-24 07:39:09,162: WARNING/MainProcess] self._fetch_all()
+[2024-11-24 07:39:09,163: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django/db/models/query.py", line 1926, in _fetch_all
+[2024-11-24 07:39:09,164: WARNING/MainProcess]     
+[2024-11-24 07:39:09,165: WARNING/MainProcess] self._result_cache = list(self._iterable_class(self))
+[2024-11-24 07:39:09,166: WARNING/MainProcess]  
+[2024-11-24 07:39:09,167: WARNING/MainProcess]  
+[2024-11-24 07:39:09,168: WARNING/MainProcess]  
+[2024-11-24 07:39:09,169: WARNING/MainProcess]  
+[2024-11-24 07:39:09,170: WARNING/MainProcess]  
+[2024-11-24 07:39:09,171: WARNING/MainProcess]  
+[2024-11-24 07:39:09,172: WARNING/MainProcess]  
+[2024-11-24 07:39:09,172: WARNING/MainProcess]  
+[2024-11-24 07:39:09,173: WARNING/MainProcess]  
+[2024-11-24 07:39:09,174: WARNING/MainProcess]  
+[2024-11-24 07:39:09,175: WARNING/MainProcess]  
+[2024-11-24 07:39:09,176: WARNING/MainProcess]  
+[2024-11-24 07:39:09,177: WARNING/MainProcess]  
+[2024-11-24 07:39:09,178: WARNING/MainProcess]  
+[2024-11-24 07:39:09,179: WARNING/MainProcess]  
+[2024-11-24 07:39:09,180: WARNING/MainProcess]  
+[2024-11-24 07:39:09,181: WARNING/MainProcess]  
+[2024-11-24 07:39:09,182: WARNING/MainProcess]  
+[2024-11-24 07:39:09,182: WARNING/MainProcess]  
+[2024-11-24 07:39:09,183: WARNING/MainProcess]  
+[2024-11-24 07:39:09,184: WARNING/MainProcess]  
+[2024-11-24 07:39:09,186: WARNING/MainProcess]  
+[2024-11-24 07:39:09,187: WARNING/MainProcess]  
+[2024-11-24 07:39:09,188: WARNING/MainProcess]  
+[2024-11-24 07:39:09,189: WARNING/MainProcess]  
+[2024-11-24 07:39:09,190: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,191: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,192: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,193: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,194: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,195: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,196: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,197: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,198: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,199: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,200: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,201: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,202: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,203: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,204: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,205: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,206: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,207: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,208: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,209: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,210: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,211: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,212: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,213: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,214: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,215: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,216: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,216: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,217: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,219: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,219: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,220: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,221: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+[2024-11-24 07:39:09,223: WARNING/MainProcess]     
+[2024-11-24 07:39:09,224: WARNING/MainProcess] results = compiler.execute_sql(
+[2024-11-24 07:39:09,225: WARNING/MainProcess]  
+[2024-11-24 07:39:09,226: WARNING/MainProcess]  
+[2024-11-24 07:39:09,227: WARNING/MainProcess]  
+[2024-11-24 07:39:09,232: WARNING/MainProcess]  
+[2024-11-24 07:39:09,234: WARNING/MainProcess]  
+[2024-11-24 07:39:09,236: WARNING/MainProcess]  
+[2024-11-24 07:39:09,237: WARNING/MainProcess]  
+[2024-11-24 07:39:09,237: WARNING/MainProcess]  
+[2024-11-24 07:39:09,238: WARNING/MainProcess]  
+[2024-11-24 07:39:09,239: WARNING/MainProcess]  
+[2024-11-24 07:39:09,240: WARNING/MainProcess]  
+[2024-11-24 07:39:09,241: WARNING/MainProcess]  
+[2024-11-24 07:39:09,243: WARNING/MainProcess]  
+[2024-11-24 07:39:09,245: WARNING/MainProcess]  
+[2024-11-24 07:39:09,246: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,249: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,250: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,251: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,255: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,256: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,257: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,259: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,261: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,262: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,263: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,264: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,266: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,267: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,268: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,269: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,270: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,271: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,272: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,273: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,275: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,276: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+[2024-11-24 07:39:09,278: WARNING/MainProcess]     
+[2024-11-24 07:39:09,279: WARNING/MainProcess] cursor.execute(sql, params)
+[2024-11-24 07:39:09,280: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+[2024-11-24 07:39:09,281: WARNING/MainProcess]     
+[2024-11-24 07:39:09,282: WARNING/MainProcess] return super().execute(sql, params)
+[2024-11-24 07:39:09,283: WARNING/MainProcess]  
+[2024-11-24 07:39:09,284: WARNING/MainProcess]  
+[2024-11-24 07:39:09,285: WARNING/MainProcess]  
+[2024-11-24 07:39:09,286: WARNING/MainProcess]  
+[2024-11-24 07:39:09,287: WARNING/MainProcess]  
+[2024-11-24 07:39:09,289: WARNING/MainProcess]  
+[2024-11-24 07:39:09,290: WARNING/MainProcess]  
+[2024-11-24 07:39:09,291: WARNING/MainProcess]  
+[2024-11-24 07:39:09,292: WARNING/MainProcess]  
+[2024-11-24 07:39:09,293: WARNING/MainProcess]  
+[2024-11-24 07:39:09,294: WARNING/MainProcess]  
+[2024-11-24 07:39:09,295: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,297: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,298: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,299: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,300: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,302: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,303: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,304: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,305: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,306: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,308: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,309: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,310: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,311: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,312: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,314: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,315: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,317: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,318: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,319: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,321: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,322: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,323: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,327: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,330: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,331: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,335: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,337: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,340: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+[2024-11-24 07:39:09,343: WARNING/MainProcess]     
+[2024-11-24 07:39:09,347: WARNING/MainProcess] return self._execute_with_wrappers(
+[2024-11-24 07:39:09,350: WARNING/MainProcess]  
+[2024-11-24 07:39:09,352: WARNING/MainProcess]  
+[2024-11-24 07:39:09,354: WARNING/MainProcess]  
+[2024-11-24 07:39:09,358: WARNING/MainProcess]  
+[2024-11-24 07:39:09,359: WARNING/MainProcess]  
+[2024-11-24 07:39:09,361: WARNING/MainProcess]  
+[2024-11-24 07:39:09,363: WARNING/MainProcess]  
+[2024-11-24 07:39:09,366: WARNING/MainProcess]  
+[2024-11-24 07:39:09,368: WARNING/MainProcess]  
+[2024-11-24 07:39:09,370: WARNING/MainProcess]  
+[2024-11-24 07:39:09,372: WARNING/MainProcess]  
+[2024-11-24 07:39:09,373: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,375: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,377: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,379: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,382: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,383: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,385: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,388: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,390: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,391: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,392: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,396: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,399: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,401: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,402: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,404: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,405: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,408: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,410: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,412: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,415: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,417: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,420: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,422: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,423: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,425: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,428: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,429: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-11-24 07:39:09,430: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,431: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+[2024-11-24 07:39:09,433: WARNING/MainProcess]     
+[2024-11-24 07:39:09,434: WARNING/MainProcess] return executor(sql, params, many, context)
+[2024-11-24 07:39:09,436: WARNING/MainProcess]  
+[2024-11-24 07:39:09,439: WARNING/MainProcess]  
+[2024-11-24 07:39:09,441: WARNING/MainProcess]  
+[2024-11-24 07:39:09,443: WARNING/MainProcess]  
+[2024-11-24 07:39:09,445: WARNING/MainProcess]  
+[2024-11-24 07:39:09,447: WARNING/MainProcess]  
+[2024-11-24 07:39:09,449: WARNING/MainProcess]  
+[2024-11-24 07:39:09,452: WARNING/MainProcess]  
+[2024-11-24 07:39:09,451: INFO/MainProcess] Connected to redis://redis:6379/0
+[2024-11-24 07:39:09,456: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-11-24 07:39:09,453: WARNING/MainProcess]  
+[2024-11-24 07:39:09,459: WARNING/MainProcess]  
+[2024-11-24 07:39:09,460: WARNING/MainProcess]  
+[2024-11-24 07:39:09,462: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,463: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,464: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,466: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,466: INFO/MainProcess] mingle: searching for neighbors
+[2024-11-24 07:39:09,469: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,471: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,473: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,476: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,478: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,480: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,481: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,482: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,484: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,486: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,489: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,491: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,492: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,494: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,496: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,498: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,500: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,502: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,504: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,505: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,507: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,509: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,510: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,512: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,514: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,517: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,519: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,520: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,522: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,524: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,525: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,527: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,528: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+[2024-11-24 07:39:09,530: WARNING/MainProcess]     
+[2024-11-24 07:39:09,531: WARNING/MainProcess] with self.db.wrap_database_errors:
+[2024-11-24 07:39:09,533: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+[2024-11-24 07:39:09,534: WARNING/MainProcess]     
+[2024-11-24 07:39:09,536: WARNING/MainProcess] raise dj_exc_value.with_traceback(traceback) from exc_value
+[2024-11-24 07:39:09,537: WARNING/MainProcess]   File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+[2024-11-24 07:39:09,539: WARNING/MainProcess]     
+[2024-11-24 07:39:09,540: WARNING/MainProcess] return self.cursor.execute(sql, params)
+[2024-11-24 07:39:09,541: WARNING/MainProcess]  
+[2024-11-24 07:39:09,543: WARNING/MainProcess]  
+[2024-11-24 07:39:09,544: WARNING/MainProcess]  
+[2024-11-24 07:39:09,546: WARNING/MainProcess]  
+[2024-11-24 07:39:09,547: WARNING/MainProcess]  
+[2024-11-24 07:39:09,549: WARNING/MainProcess]  
+[2024-11-24 07:39:09,550: WARNING/MainProcess]  
+[2024-11-24 07:39:09,552: WARNING/MainProcess]  
+[2024-11-24 07:39:09,553: WARNING/MainProcess]  
+[2024-11-24 07:39:09,555: WARNING/MainProcess]  
+[2024-11-24 07:39:09,556: WARNING/MainProcess]  
+[2024-11-24 07:39:09,557: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,559: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,560: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,562: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,563: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,564: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,565: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,566: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,568: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,569: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,570: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,571: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,573: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,574: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,576: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,577: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,578: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,579: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,581: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,582: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,583: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,584: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,586: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,588: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,589: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,591: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,592: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,593: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,594: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,595: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,597: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,598: WARNING/MainProcess] ^
+[2024-11-24 07:39:09,599: WARNING/MainProcess] django.db.utils
+[2024-11-24 07:39:09,600: WARNING/MainProcess] .
+[2024-11-24 07:39:09,601: WARNING/MainProcess] ProgrammingError
+[2024-11-24 07:39:09,603: WARNING/MainProcess] : 
+[2024-11-24 07:39:09,604: WARNING/MainProcess] relation "django_celery_beat_periodictask" does not exist
+LINE 1: ...ango_celery_beat_periodictask"."description" FROM "django_ce...
+                                                             ^
+[2024-11-24 07:39:10,505: INFO/MainProcess] mingle: all alone
+[2024-11-24 07:39:10,526: INFO/MainProcess] celery@472b2d8d3878 ready.
+[2024-11-24 07:39:20,864: INFO/MainProcess] Events of group {task} enabled by remote.
+[2024-11-24 17:17:11,379: INFO/MainProcess] beat: Starting...
+[2024-11-24 17:17:12,291: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-11-24 17:17:12,309: INFO/MainProcess] Connected to redis://redis:6379/0
+[2024-11-24 17:17:12,312: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-11-24 17:17:12,318: INFO/MainProcess] mingle: searching for neighbors
+[2024-11-24 17:17:13,334: INFO/MainProcess] mingle: all alone
+[2024-11-24 17:17:13,358: INFO/MainProcess] celery@472b2d8d3878 ready.
+[2024-11-24 17:17:21,242: INFO/MainProcess] Events of group {task} enabled by remote.
+[2024-11-24 17:27:02,694: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-11-24 17:27:02,709: INFO/MainProcess] Connected to redis://redis:6379/0
+[2024-11-24 17:27:02,712: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-11-24 17:27:02,721: INFO/MainProcess] mingle: searching for neighbors
+[2024-11-24 17:27:03,739: INFO/MainProcess] mingle: all alone
+[2024-11-24 17:27:03,762: INFO/MainProcess] celery@472b2d8d3878 ready.
+[2024-11-24 17:27:06,276: INFO/MainProcess] Events of group {task} enabled by remote.
+[2024-12-01 07:35:11,102: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-12-01 07:35:11,208: INFO/MainProcess] Connected to redis://redis:6379/0
+[2024-12-01 07:35:11,211: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-12-01 07:35:11,232: INFO/MainProcess] mingle: searching for neighbors
+[2024-12-01 07:35:12,251: INFO/MainProcess] mingle: all alone
+[2024-12-01 07:35:12,272: INFO/MainProcess] celery@72694f223695 ready.
+[2024-12-01 07:36:37,537: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-12-01 07:36:37,551: INFO/MainProcess] Connected to redis://redis:6379/0
+[2024-12-01 07:36:37,555: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-12-01 07:36:37,566: INFO/MainProcess] mingle: searching for neighbors
+[2024-12-01 07:36:38,586: INFO/MainProcess] mingle: all alone
+[2024-12-01 07:36:38,620: INFO/MainProcess] celery@72694f223695 ready.
+[2024-12-01 21:12:27,212: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-12-01 21:12:27,269: INFO/MainProcess] Connected to redis://redis:6379/0
+[2024-12-01 21:12:27,272: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-12-01 21:12:27,280: INFO/MainProcess] mingle: searching for neighbors
+[2024-12-01 21:12:28,315: INFO/MainProcess] mingle: all alone
+[2024-12-01 21:12:28,426: INFO/MainProcess] celery@5bdb03e4717b ready.

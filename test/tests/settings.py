@@ -1,0 +1,1 @@
+from AdGenesis.settings import *
